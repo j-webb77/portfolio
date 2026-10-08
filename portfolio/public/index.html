@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jeremiah Webb — Software Engineer | Systems Support Analyst</title>
+<meta name="description" content="Portfolio of Jeremiah Webb, a software engineer specializing in backend systems, APIs, and data engineering.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1120'/%3E%3Ctext x='32' y='43' font-family='-apple-system,Segoe UI,Roboto,sans-serif' font-size='30' font-weight='700' fill='%2322d3ee' text-anchor='middle'%3EJD%3C/text%3E%3C/svg%3E">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('pf-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div id="progress" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Home">
+      <span class="monogram" aria-hidden="true">JW</span>
+      <span class="brand-name">Jeremiah Webb</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </g>
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <p class="eyebrow" data-reveal>Software Engineer · Backend &amp; Data</p>
+      <h1 data-reveal>John Doe</h1>
+      <p class="lead" data-reveal>
+        I design and ship reliable backend systems, clean APIs, and data-driven tools.
+        Currently focused on Node.js, relational databases, and cloud-native deployments.
+      </p>
+      <div class="hero-actions" data-reveal>
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+        <a class="btn btn-ghost" href="/assets/resume.pdf" download>Résumé</a>
+      </div>
+      <ul class="hero-meta" data-reveal>
+        <li>Remote · United States</li>
+        <li><a href="https://github.com/yourname" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/yourname" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:you@example.com">you@example.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <h2 class="section-title" data-reveal>About</h2>
+      <div class="about-grid">
+        <div class="about-copy" data-reveal>
+          <p>
+            I'm a software engineer with a strong interest in the parts of a product that people
+            don't see: schema design, query performance, authentication, and the glue that keeps
+            systems consistent under load.
+          </p>
+          <p>
+            Over the past few years I've built REST APIs, realtime synchronization services, and
+            internal analytics tools. I care about clear code, measurable performance, and
+            shipping small improvements often.
+          </p>
+          <p>
+            Outside of work I write about databases, contribute to small open-source projects, and
+            enjoy trail running.
+          </p>
+        </div>
+        <aside class="skills" data-reveal>
+          <h3>Toolkit</h3>
+          <ul class="chip-list">
+            <li>JavaScript / TypeScript</li>
+            <li>Node.js · Express</li>
+            <li>Python · Flask</li>
+            <li>Go</li>
+            <li>SQL · PostgreSQL</li>
+            <li>MySQL · SQLite</li>
+            <li>Redis</li>
+            <li>Docker</li>
+            <li>Nginx</li>
+            <li>Linux · systemd</li>
+            <li>Git · CI/CD</li>
+            <li>REST · WebSockets</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <h2 class="section-title" data-reveal>Projects</h2>
+      <p class="section-sub" data-reveal>Six selected projects, loaded live from the database.</p>
+      <div id="project-grid" class="project-grid" aria-busy="true">
+        <p class="loading" data-reveal>Loading projects…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap narrow">
+      <h2 class="section-title" data-reveal>Contact</h2>
+      <p class="section-sub" data-reveal>
+        Have a role, a question, or a project in mind? Send a note and I'll reply within a day or two.
+      </p>
+
+      <form id="contact-form" class="contact-form" data-reveal novalidate>
+        <div class="field-row">
+          <label class="field">
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required maxlength="120">
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required maxlength="200">
+          </label>
+        </div>
+        <label class="field">
+          <span>Subject <em>(optional)</em></span>
+          <input type="text" name="subject" maxlength="200">
+        </label>
+        <label class="field">
+          <span>Message</span>
+          <textarea name="message" rows="6" required maxlength="5000"></textarea>
+        </label>
+
+        <!-- Honeypot: hidden from humans, tempting to bots -->
+        <div class="hp-field" aria-hidden="true">
+          <label>Website
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© <span id="year"></span> John Doe. Built with Node.js, SQLite, and vanilla JavaScript.</p>
+    <p class="views"><span id="view-count">—</span> page views</p>
+  </div>
+</footer>
+
+<script src="/js/main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin — Portfolio</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1120'/%3E%3Ctext x='32' y='43' font-family='-apple-system,Segoe UI,Roboto,sans-serif' font-size='30' font-weight='700' fill='%2322d3ee' text-anchor='middle'%3EJD%3C/text%3E%3C/svg%3E">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('pf-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="admin-body">
+
+<!-- LOGIN VIEW -->
+<section id="login-view" class="login-wrap" hidden>
+  <form id="login-form" class="login-card" autocomplete="on">
+    <h1>Admin Sign-in</h1>
+    <p class="muted">Enter your credentials to manage the portfolio.</p>
+    <label class="field">
+      <span>Username</span>
+      <input type="text" name="username" autocomplete="username" required>
+    </label>
+    <label class="field">
+      <span>Password</span>
+      <input type="password" name="password" autocomplete="current-password" required>
+    </label>
+    <button type="submit" class="btn btn-primary">Sign In</button>
+    <p id="login-status" class="form-status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
+<!-- DASHBOARD VIEW -->
+<section id="dashboard-view" class="admin-wrap" hidden>
+  <header class="admin-header">
+    <div class="wrap admin-header-inner">
+      <div>
+        <h1>Portfolio Admin</h1>
+        <p class="muted">Signed in as <strong id="current-user">—</strong></p>
+      </div>
+      <div class="admin-header-actions">
+        <a class="btn btn-ghost" href="/" target="_blank" rel="noopener">View Site</a>
+        <button id="logout-btn" class="btn btn-ghost" type="button">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap admin-content">
+    <nav class="tabs" role="tablist">
+      <button class="tab is-active" data-tab="projects" type="button" role="tab">Projects</button>
+      <button class="tab" data-tab="messages" type="button" role="tab">Messages <span id="msg-badge" class="badge" hidden>0</span></button>
+    </nav>
+
+    <!-- PROJECTS TAB -->
+    <section id="tab-projects" class="tab-panel">
+      <div class="panel-actions">
+        <h2>Projects</h2>
+        <button id="new-project-btn" class="btn btn-primary" type="button">+ New Project</button>
+      </div>
+
+      <form id="project-form" class="project-form" hidden>
+        <h3 id="project-form-title">New Project</h3>
+        <input type="hidden" name="id">
+
+        <div class="field-row">
+          <label class="field">
+            <span>Title</span>
+            <input type="text" name="title" required maxlength="200">
+          </label>
+          <label class="field">
+            <span>Sort order</span>
+            <input type="number" name="sort_order" value="0">
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Summary (short, one line)</span>
+          <input type="text" name="summary" required maxlength="500">
+        </label>
+
+        <label class="field">
+          <span>Description</span>
+          <textarea name="description" rows="3" maxlength="4000"></textarea>
+        </label>
+
+        <label class="field">
+          <span>Highlights (one per line)</span>
+          <textarea name="highlights" rows="4" placeholder="Designed a normalized schema…&#10;Cut p95 latency from 480 ms to 90 ms…"></textarea>
+        </label>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Repo URL</span>
+            <input type="url" name="repo_url" maxlength="500" placeholder="https://github.com/...">
+          </label>
+          <label class="field">
+            <span>Demo URL</span>
+            <input type="url" name="demo_url" maxlength="500" placeholder="https://...">
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Image URL</span>
+            <input type="url" name="image_url" maxlength="500">
+          </label>
+          <label class="field">
+            <span>Tags (comma separated)</span>
+            <input type="text" name="tags" placeholder="node, postgresql, docker">
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save Project</button>
+          <button type="button" id="cancel-project-btn" class="btn btn-ghost">Cancel</button>
+        </div>
+        <p id="project-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div id="projects-list" class="admin-list"></div>
+    </section>
+
+    <!-- MESSAGES TAB -->
+    <section id="tab-messages" class="tab-panel" hidden>
+      <div class="panel-actions">
+        <h2>Messages</h2>
+        <button id="refresh-messages-btn" class="btn btn-ghost" type="button">Refresh</button>
+      </div>
+      <div id="messages-list" class="admin-list"></div>
+    </section>
+  </div>
+</section>
+
+<script src="/js/admin.js" type="module"></script>
+</body>
+</html>

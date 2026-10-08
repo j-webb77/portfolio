@@ -1,0 +1,34 @@
+# /etc/systemd/system/portfolio.service
+#
+# Runs the portfolio Node.js app as an unprivileged service user.
+# Assumes the project lives at /var/www/portfolio and is owned by www-data.
+# Adjust User/Group/WorkingDirectory if your paths differ.
+
+[Unit]
+Description=Portfolio Node.js application
+Documentation=file:/var/www/portfolio/DEPLOY.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/portfolio
+EnvironmentFile=/var/www/portfolio/.env
+ExecStart=/usr/bin/node server/server.js
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=portfolio
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/var/www/portfolio/data
+
+[Install]
+WantedBy=multi-user.target
